@@ -11,7 +11,7 @@ export default function TeamsList(props) {
         { props.teams.map((team) => {
           // if (!this.props.teams) return 'Loading...'
           return <div key={ team.id }>
-          {<Link to={ `/team/${team}` }>{team.name}</Link>}</div>
+          {<Link to={ `/team/${team.id}` }>{team.name}</Link>}</div>
         })}
         </div>)
     
