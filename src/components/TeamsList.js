@@ -9,7 +9,6 @@ export default function TeamsList(props) {
 
   console.log('props: ', props);
   console.log('props.teams: ', props.teams);
-  console.log('props.teams.length: ', props.teams.length);
 
 
   return (
