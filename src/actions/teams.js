@@ -1,6 +1,7 @@
 import request from 'superagent'
 
 export const TEAMS_FETCHED = 'TEAMS_FETCHED'
+export const TEAM_CREATE_SUCCESS = 'TEAM_CREATE_SUCCESS'
 
 const baseUrl = 'http://localhost:4000'
 
@@ -18,6 +19,21 @@ export const loadTeams = () => (dispatch, getState) => {
     .then(response => {
       // dispatch a TEAMS_FETCHED action that contains the teams
       dispatch(teamsFetched(response.body))
+    })
+    .catch(console.error)
+}
+
+const teamCreateSuccess = team => ({
+  type: TEAM_CREATE_SUCCESS,
+  team
+})
+
+export const createTeam = (data) => dispatch => {
+  request
+    .post(`${baseUrl}/team`)
+    .send(data)
+    .then(response => {
+      dispatch(teamCreateSuccess(response.body))
     })
     .catch(console.error)
 }
