@@ -6,17 +6,17 @@ const baseUrl = 'http://localhost:4000'
 
 const teamsFetched = teams => ({
   type: TEAMS_FETCHED,
-  teams
+  payload: teams
 })
 
 export const loadTeams = () => (dispatch, getState) => {
   // when the state already contains teams, we don't fetch them again
-  if (getState().teams) return
+  if (getState().teams.length !== 0) return
 
   // a GET /teams request
-  request(`${baseUrl}/teams`)
+  request(`${baseUrl}/team`)
     .then(response => {
-      // dispatch an TEAMS_FETCHED action that contains the teams
+      // dispatch a TEAMS_FETCHED action that contains the teams
       dispatch(teamsFetched(response.body))
     })
     .catch(console.error)

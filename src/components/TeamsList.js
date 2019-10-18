@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 
 // contains markup and retrieve data via the props
 export default function TeamsList(props) {
-    // console.log(props.teams[0])
+    console.log(props.teams.length)
 
-  return (<div>
-    { props.teams.map((id) => {
-      if (!this.props.teams) return 'Loading...'
-      return <div key={ id }>
-      {<Link to={ `/team/${id}` }>{name}</Link>}</div>
-    })}
-
-  </div>)
+      return (<div>
+        { props.teams.map((team) => {
+          // if (!this.props.teams) return 'Loading...'
+          return <div key={ team.id }>
+          {<Link to={ `/team/${team}` }>{team.name}</Link>}</div>
+        })}
+        </div>)
+    
 }
