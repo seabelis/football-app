@@ -25,7 +25,7 @@ export const TEAM_CREATE_SUCCESS = 'TEAM_CREATE_SUCCESS'
 
 const teamCreateSuccess = team => ({
   type: TEAM_CREATE_SUCCESS,
-  team
+  payload: team
 })
 
 export const createTeam = (data) => dispatch => {
@@ -37,3 +37,19 @@ export const createTeam = (data) => dispatch => {
     })
     .catch(console.error)
 }
+
+export const FETCH_TEAM_SUCCESS = 'FETCH_TEAM_SUCCESS'
+
+const fetchTeamSuccess = team => ({
+    type: FETCH_TEAM_SUCCESS,
+    payload: team
+})
+
+export const loadTeam = (id) => (dispatch, getState) => {
+  console.log('CAN WE GET THE STATE??', getState())
+  request(`${baseUrl}/team/${id}`)
+      .then(response => {
+          console.log(response)
+          dispatch(fetchTeamSuccess(response.body))
+      })
+    }   

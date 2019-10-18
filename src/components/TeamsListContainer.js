@@ -6,7 +6,7 @@ import CreateTeamFormContainer from './CreateTeamFormContainer'
 
 class TeamsListContainer extends React.Component {
   componentDidMount() {
-    // console.log('hi');
+    console.log('hi');
     
     this.props.loadTeams()
   }
