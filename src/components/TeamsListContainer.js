@@ -12,7 +12,6 @@ class TeamsListContainer extends React.Component {
   }
 
   render() {
-    if (!this.props.teams) return 'Loading...'
     return <div> 
       <TeamsList teams={this.props.teams} />
       <CreateTeamFormContainer />
